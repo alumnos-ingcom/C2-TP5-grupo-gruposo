@@ -27,8 +27,13 @@
 
 def parentesis_balanceado(cadena):
     
-    if len(cadena) % 2 != 0 or len(cadena) == 0:
-        respuesta = "NO"
+    largo = len(cadena)
+    print(f"largo de la cadena: {largo}")
+    #Esta es una variable de control provisoria para saber si entra la cadena completa
+    #¿la borramos?????
+
+    if ((len(cadena) % 2) == 1) or (len(cadena) == 0):
+        respuesta = "NO1" #Marca la condicion de salida aquí o mas abajo
     else:
         respuesta = "YES"
         i = 0
@@ -39,18 +44,18 @@ def parentesis_balanceado(cadena):
                 if cadena[i - 1] + cadena[i] in "{}" or \
                         cadena[i - 1] + cadena[i] in "[]" or \
                         cadena[i - 1] + cadena[i] in "()":
+                    
                     cadena = cadena[:i - 1] + cadena[i + 1:]
                     i -= 1
                 else:
-                    respuesta = "NO"
+                    respuesta = "NO2" #marca la segunda condicion de salida
                     
     return respuesta
     
     
 def prueba():
-    cadena = [x for x in input('Ingrese parentesis: ') if x in "{}[]()"]
-    cad = parentesis_balanceado(cadena)
-    print(f'salida par de parentesis {parentesis_balanceado(cad)}')
+    cadena1 = [x for x in input("Ingrese parentesis: ") if x in "{}[]()"]
+    print(f'salida par de parentesis {parentesis_balanceado(cadena1)}')
     
 if __name__ == "__main__":
     prueba() 
