@@ -1,12 +1,29 @@
 ###############
 # Katherina Soto - @ktyfer
 # UNRN Andina - Introducción a la Ingenieria en Computación
-#grupo gruposo
+# grupo gruposo
 ################
 
-#Parentesis balanceado
+# Parentesis balanceado
+# Implementar una función que determine si **una** cadena con parentesis está balanceada.
 
+# Es decir, si cada parentesis que abre, tiene su par que cierra.
+# El resultado debe ser un valor lógico indicando si esta o no balanceado.
 
+# **Ejemplos**
+
+#   (vacio)      OK
+#   []           OK   
+#   [][]         OK   
+#   [[][]]       OK 
+#   ][           NO OK
+#   ][][         NO OK
+#   []][[]       NO OK
+       
+# La funcion deberia de ignorar todo lo que no sean parentesis.
+
+# **Extra**: Permitir la modificacion de los caracteres a parentesis,
+# llaves, o cualquier otro par de caracteres.
 
 def parentesis_balanceado(cadena):
     
@@ -26,16 +43,14 @@ def parentesis_balanceado(cadena):
                     i -= 1
                 else:
                     respuesta = "NO"
+                    
+    return respuesta
     
     
 def prueba():
     cadena = [x for x in input('Ingrese parentesis: ') if x in "{}[]()"]
-    
     cad = parentesis_balanceado(cadena)
+    print(f'salida par de parentesis {parentesis_balanceado(cad)}')
     
-    print(f'salida par de parentesis {parentesis_balanceado(cadena)}')
-    
-
-
 if __name__ == "__main__":
     prueba() 
